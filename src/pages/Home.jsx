@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import slide1 from "../assets/images1.jpg";
 import slide2 from "../assets/images2.jpg";
 import slide3 from "../assets/images3.jpg";
-import Button from "../components/Button";
+import LocationMap from "../components/LocationMap";
 
 const images = [slide1, slide2, slide3];
 
@@ -27,7 +27,7 @@ const Home = () => {
   }, [currentIndex]);
 
   return (
-    <div className="w-full md:max-w-3xl mx-auto py-2">
+    <div className="w-full md:max-w-6xl mx-auto py-2">
       <div className="grid grid-cols-2 grid-rows-1 gap-3">
         {/* SLIDER */}
         <div className="col-span-2 relative w-full aspect-video overflow-hidden rounded">
@@ -96,17 +96,18 @@ const Home = () => {
           </div>
         </div>
       </div>
-
-      {/* deskripsi */}
-
+      
+      {/* Rating */}
       <div className="mt-4">
-        <div className="h-full p-0 border-2 border-gray-300 rounded mb-2">
+        <div className="h-full p-0 border-b-1 border-black border-dashed mb-2 p-2">
           <h1>
             <strong>Viva Lavida</strong>
           </h1>
           <p>5.0 ⭐ Kota Tasikmalaya, Jawa Barat</p>
         </div>
-        <div className="h-full border-2 border-gray-300 rounded">
+        
+        {/* Deskripsi */}
+        <div className="h-full p-0 border-b-1 border-black border-dashed mb-2 p-2">
           <h1>
             <strong>Deskripsi</strong>
           </h1>
@@ -122,17 +123,25 @@ const Home = () => {
                 penuh energi! Kami juga menyediakan berbagai fasilitas seperti
                 WiFi gratis, area bermain anak, dan ruang pertemuan untuk acara
                 kecil. Tim kami yang ramah siap melayani Anda dengan senyum dan
-                dedikasi penuh. 
+                dedikasi penuh.
               </>
             )}
-            <br />
-            <strong><a onClick={() => setIsExpanded(!isExpanded)} className="text-sm text-red-800">
-              {isExpanded ? "Lihat Lebih Sedikit" : "Lihat Selengkapnya"}
-            </a></strong>
+            <strong>
+              <a
+                onClick={() => setIsExpanded(!isExpanded)}
+                className="text-sm text-red-800"
+              >
+                {isExpanded ? " Lihat Lebih Sedikit" : " Lihat Selengkapnya"}
+              </a>
+            </strong>
           </p>
-          <div className="mt-2"></div>
         </div>
-        <div></div>
+
+        {/* Map */}
+        <div className="h-full p-0 border-b-1 border-black border-dashed mb-2 p-2">
+          <h1><strong>Lokasi </strong></h1>
+          <LocationMap />
+        </div>
       </div>
     </div>
   );
